@@ -550,7 +550,7 @@ Paho.MQTT = (function (global) {
 				digit |= 0x80;
 			}
 			output[numBytes++] = digit;
-		} while ( (number > 0) && (numBytes<4) );
+		} while ( (number > 0) && (numBytes < 4) );
 
 		return output;
 	}
@@ -598,7 +598,6 @@ Paho.MQTT = (function (global) {
 					throw new Error(format(ERROR.MALFORMED_UNICODE, [charCode, lowCharCode]));
 				}
 				charCode = ((charCode - 0xD800)<<10) + (lowCharCode - 0xDC00) + 0x10000;
-			
 			}
 			
 			if (charCode <= 0x7F) {
@@ -763,7 +762,7 @@ Paho.MQTT = (function (global) {
 		// The conditional inclusion of path in the key is for backward
 		// compatibility to when the path was not configurable and assumed to
 		// be /mqtt
-		this._localKey=host+":"+port+(path!="/mqtt"?":"+path:"")+":"+clientId+":";
+		this._localKey = host+":"+port+(path!="/mqtt"?":"+path:"")+":"+clientId+":";
 
 		// Create private instance-only message queue
 		// Internal queue of messages to be sent, in sending order. 
